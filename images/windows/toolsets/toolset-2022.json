@@ -81,10 +81,8 @@
         { "name": "PowerShellGet" },
         { "name": "PSScriptAnalyzer" },
         { "name": "PSWindowsUpdate" },
-        { "name": "SqlServer" },
         { "name": "VSSetup" },
-        { "name": "Microsoft.Graph" },
-        {"name": "AWSPowershell"}
+        { "name": "Microsoft.Graph" }
     ],
     "azureModules": [
         {
@@ -256,10 +254,7 @@
     "docker": {
         "images": [
             "mcr.microsoft.com/windows/servercore:ltsc2022",
-            "mcr.microsoft.com/windows/nanoserver:ltsc2022",
-            "mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022",
-            "mcr.microsoft.com/dotnet/framework/runtime:4.8-windowsservercore-ltsc2022",
-            "mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2022"
+            "mcr.microsoft.com/windows/nanoserver:ltsc2022"
         ],
         "components": {
             "docker": "27.5.1",
@@ -308,24 +303,10 @@
     "choco": {
         "common_packages": [
             { "name": "7zip.install" },
-            { "name": "aria2" },
             { "name": "azcopy10" },
-            { "name": "Bicep" },
-            { "name": "innosetup" },
             { "name": "jq" },
             { "name": "NuGet.CommandLine" },
             { "name": "packer" },
-            {
-                "name": "strawberryperl" ,
-                "args": [ "--version", "5.40.2.2" ]
-            },
-            { "name": "pulumi" },
-            { "name": "swig" },
-            { "name": "vswhere" },
-            {
-                "name": "julia",
-                "args": [ "--ia", "/DIR=C:\\Julia" ]
-            },
             {
                 "name": "cmake.install",
                 "version": "3.31.6",
@@ -377,6 +358,6 @@
         }
     },
     "pwsh": {
-        "version": "7.4"
+        "version": "7.5"
     }
 }
