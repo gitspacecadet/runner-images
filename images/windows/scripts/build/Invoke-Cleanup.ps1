@@ -39,19 +39,18 @@ Write-Host "Clean up various directories"
 Remove-Item $profile.AllUsersAllHosts -Force -ErrorAction SilentlyContinue | Out-Null
 
 # Clean yarn and npm cache
-cmd /c "yarn cache clean 2>&1" | Out-Null
-if ($LASTEXITCODE -ne 0) {
-    throw "Failed to clean yarn cache"
-}
+# cmd /c "yarn cache clean 2>&1" | Out-Null
+# if ($LASTEXITCODE -ne 0) {
+#     throw "Failed to clean yarn cache"
+# }
 
-cmd /c "npm cache clean --force 2>&1" | Out-Null
-if ($LASTEXITCODE -ne 0) {
-    throw "Failed to clean npm cache"
-}
+# cmd /c "npm cache clean --force 2>&1" | Out-Null
+# if ($LASTEXITCODE -ne 0) {
+#     throw "Failed to clean npm cache"
+# }
 
 if (Test-IsWin25) {
     $directoriesToCompact = @(
-        "C:\Program Files (x86)\Android",
         "C:\Program Files\dotnet",
         "$env:SystemRoot\assembly",
         "$env:SystemRoot\WinSxS"
