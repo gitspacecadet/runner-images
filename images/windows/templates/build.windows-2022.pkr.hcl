@@ -88,11 +88,11 @@ build {
     scripts          = [
       "${path.root}/../scripts/build/Install-Docker.ps1",
       "${path.root}/../scripts/build/Install-DockerWinCred.ps1",
-      "${path.root}/../scripts/build/Install-DockerCompose.ps1",
+      # "${path.root}/../scripts/build/Install-DockerCompose.ps1",
       "${path.root}/../scripts/build/Install-PowershellCore.ps1",
       "${path.root}/../scripts/build/Install-WebPlatformInstaller.ps1",
-      "${path.root}/../scripts/build/Install-Runner.ps1",
-      "${path.root}/../scripts/build/Install-TortoiseSvn.ps1"
+      "${path.root}/../scripts/build/Install-Runner.ps1"
+      # "${path.root}/../scripts/build/Install-TortoiseSvn.ps1"
     ]
   }
 
@@ -162,12 +162,12 @@ build {
       "${path.root}/../scripts/build/Install-GitHub-CLI.ps1",
       # "${path.root}/../scripts/build/Install-PHP.ps1",
       # "${path.root}/../scripts/build/Install-Rust.ps1",
-      "${path.root}/../scripts/build/Install-Sbt.ps1",
+      # "${path.root}/../scripts/build/Install-Sbt.ps1",
       # "${path.root}/../scripts/build/Install-Chrome.ps1",
-      "${path.root}/../scripts/build/Install-EdgeDriver.ps1",
+      # "${path.root}/../scripts/build/Install-EdgeDriver.ps1",
       # "${path.root}/../scripts/build/Install-Firefox.ps1",
       # "${path.root}/../scripts/build/Install-Selenium.ps1",
-      "${path.root}/../scripts/build/Install-IEWebDriver.ps1",
+      # "${path.root}/../scripts/build/Install-IEWebDriver.ps1",
       # "${path.root}/../scripts/build/Install-Apache.ps1",
       # "${path.root}/../scripts/build/Install-Nginx.ps1",
       # "${path.root}/../scripts/build/Install-Msys2.ps1",
@@ -207,8 +207,7 @@ build {
       "${path.root}/../scripts/build/Configure-DynamicPort.ps1",
       "${path.root}/../scripts/build/Configure-GDIProcessHandleQuota.ps1",
       "${path.root}/../scripts/build/Configure-Shell.ps1",
-      "${path.root}/../scripts/build/Configure-DeveloperMode.ps1",
-      "${path.root}/../scripts/build/Install-LLVM.ps1"
+      "${path.root}/../scripts/build/Configure-DeveloperMode.ps1"
     ]
   }
 

@@ -23,10 +23,7 @@ $requiredTests = @(
     "RunnerCache",          # GitHub Actions cache and runner setup
     
     # CLI Tools
-    "CLI.Tools",            # Azure CLI, Azure DevOps CLI, GitHub CLI
-    
-    # Compiler Infrastructure  
-    "LLVM"                  # LLVM compiler infrastructure
+    "CLI.Tools"            # Azure CLI, Azure DevOps CLI, GitHub CLI
 )
 
 Write-Host "Running tests for minimal Azure VMSS runner image..." -ForegroundColor Cyan

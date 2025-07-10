@@ -12,12 +12,12 @@ Describe "Docker" {
     }
 }
 
-Describe "DockerCompose" {
-    It "docker compose v2" {
-        "docker compose version" | Should -ReturnZeroExitCode
-    }
+# Describe "DockerCompose" {
+#     It "docker compose v2" {
+#         "docker compose version" | Should -ReturnZeroExitCode
+#     }
 
-}
+# }
 
 Describe "DockerWinCred" {
     It "docker-wincred" {

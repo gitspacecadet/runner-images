@@ -38,7 +38,7 @@ $knownDependencies = @{
     "Install-AWSTools.ps1" = @("Install-Powershell.ps1")
     
     # Containers
-    "Install-Docker.ps1" = @("Install-DockerCompose.ps1", "Install-DockerWincred.ps1")
+    "Install-Docker.ps1" = @("Install-DockerWincred.ps1")
     
     # Android Development
     "Install-AndroidSDK.ps1" = @("Install-JavaTools.ps1")
