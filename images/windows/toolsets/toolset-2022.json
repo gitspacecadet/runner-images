@@ -71,8 +71,7 @@
             { "name": "jq" },
             { "name": "NuGet.CommandLine" },
             { "name": "packer" },
-            { "name": "imagemagick" },
-            { "name": "ninja" }
+            { "name": "imagemagick" }
         ]
     },
     "node": {

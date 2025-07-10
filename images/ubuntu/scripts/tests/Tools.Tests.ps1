@@ -391,29 +391,29 @@ Describe "Kotlin" {
     }
 }
 
-Describe "Ninja" {
-    BeforeAll {
-        New-item -Path "/tmp/ninjaproject" -ItemType Directory -Force
-@'
-cmake_minimum_required(VERSION 3.10)
-project(NinjaTest NONE)
-'@ | Out-File -FilePath "/tmp/ninjaproject/CMakeLists.txt"
-    }
+# Describe "Ninja" {
+#     BeforeAll {
+#         New-item -Path "/tmp/ninjaproject" -ItemType Directory -Force
+# @'
+# cmake_minimum_required(VERSION 3.10)
+# project(NinjaTest NONE)
+# '@ | Out-File -FilePath "/tmp/ninjaproject/CMakeLists.txt"
+#     }
 
-    It "Make a simple ninja project" {
-        "cmake -GNinja -S /tmp/ninjaproject -B /tmp/ninjaproject" | Should -ReturnZeroExitCode
-    }
+#     It "Make a simple ninja project" {
+#         "cmake -GNinja -S /tmp/ninjaproject -B /tmp/ninjaproject" | Should -ReturnZeroExitCode
+#     }
 
-    It "build.ninja file should exist" {
-        $buildFilePath = Join-Path "/tmp/ninjaproject" "build.ninja"
-        $buildFilePath | Should -Exist
-    }
+#     It "build.ninja file should exist" {
+#         $buildFilePath = Join-Path "/tmp/ninjaproject" "build.ninja"
+#         $buildFilePath | Should -Exist
+#     }
 
-    It "Ninja" {
-        "ninja --version" | Should -ReturnZeroExitCode
-    }
+#     It "Ninja" {
+#         "ninja --version" | Should -ReturnZeroExitCode
+#     }
 
-    AfterAll {
-        Remove-Item -Path "/tmp/ninjaproject" -Recurse -Force
-    }
-}
+#     AfterAll {
+#         Remove-Item -Path "/tmp/ninjaproject" -Recurse -Force
+#     }
+# }

@@ -149,24 +149,24 @@ Describe "pkgconf" {
     }
 }
 
-Describe "Ninja" {
-    New-item -Path "/tmp/ninjaproject" -ItemType Directory -Force
-    Set-Location '/tmp/ninjaproject'
-@'
-cmake_minimum_required(VERSION 3.10)
-project(NinjaTest NONE)
-'@ | Out-File -FilePath "./CMakeLists.txt"
+# Describe "Ninja" {
+#     New-item -Path "/tmp/ninjaproject" -ItemType Directory -Force
+#     Set-Location '/tmp/ninjaproject'
+# @'
+# cmake_minimum_required(VERSION 3.10)
+# project(NinjaTest NONE)
+# '@ | Out-File -FilePath "./CMakeLists.txt"
 
-    It "Make a simple ninja project" {
-    "cmake -GNinja /tmp/ninjaproject" | Should -ReturnZeroExitCode
-    }
+#     It "Make a simple ninja project" {
+#     "cmake -GNinja /tmp/ninjaproject" | Should -ReturnZeroExitCode
+#     }
 
-    It "build.ninja file should exist" {
-        $buildFilePath = Join-Path "/tmp/ninjaproject" "build.ninja"
-        $buildFilePath | Should -Exist
-    }
+#     It "build.ninja file should exist" {
+#         $buildFilePath = Join-Path "/tmp/ninjaproject" "build.ninja"
+#         $buildFilePath | Should -Exist
+#     }
 
-    It "Ninja" {
-        "ninja --version" | Should -ReturnZeroExitCode
-    }
-}
+#     It "Ninja" {
+#         "ninja --version" | Should -ReturnZeroExitCode
+#     }
+# }

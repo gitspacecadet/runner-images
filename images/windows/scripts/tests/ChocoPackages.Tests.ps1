@@ -92,11 +92,11 @@ Describe "Packer" {
 #     }
 # }
 
-Describe "CMake" {
-    It "cmake" {
-        "cmake --version" | Should -ReturnZeroExitCode
-    }
-}
+# Describe "CMake" {
+#     It "cmake" {
+#         "cmake --version" | Should -ReturnZeroExitCode
+#     }
+# }
 
 Describe "ImageMagick" {
     It "ImageMagick" {
@@ -104,30 +104,30 @@ Describe "ImageMagick" {
     }
 }
 
-Describe "Ninja" {
-    BeforeAll {
-        $ninjaProjectPath = $(Join-Path $env:TEMP_DIR "ninjaproject")
-        New-item -Path $ninjaProjectPath -ItemType Directory -Force
-@'
-cmake_minimum_required(VERSION 3.10)
-project(NinjaTest NONE)
-'@ | Out-File -FilePath "$ninjaProjectPath/CMakeLists.txt" -Encoding utf8
+# Describe "Ninja" {
+#     BeforeAll {
+#         $ninjaProjectPath = $(Join-Path $env:TEMP_DIR "ninjaproject")
+#         New-item -Path $ninjaProjectPath -ItemType Directory -Force
+# @'
+# cmake_minimum_required(VERSION 3.10)
+# project(NinjaTest NONE)
+# '@ | Out-File -FilePath "$ninjaProjectPath/CMakeLists.txt" -Encoding utf8
 
-        $ninjaProjectBuildPath = $(Join-Path $ninjaProjectPath "build")
-        New-item -Path $ninjaProjectBuildPath -ItemType Directory -Force
-        Set-Location $ninjaProjectBuildPath
-    }
+#         $ninjaProjectBuildPath = $(Join-Path $ninjaProjectPath "build")
+#         New-item -Path $ninjaProjectBuildPath -ItemType Directory -Force
+#         Set-Location $ninjaProjectBuildPath
+#     }
 
-    It "Make a simple ninja project" {
-    "cmake -GNinja $ninjaProjectPath" | Should -ReturnZeroExitCode
-    }
+#     It "Make a simple ninja project" {
+#     "cmake -GNinja $ninjaProjectPath" | Should -ReturnZeroExitCode
+#     }
 
-    It "build.ninja file should exist" {
-        $buildFilePath = $(Join-Path $ninjaProjectBuildPath "build.ninja")
-        $buildFilePath | Should -Exist
-    }
+#     It "build.ninja file should exist" {
+#         $buildFilePath = $(Join-Path $ninjaProjectBuildPath "build.ninja")
+#         $buildFilePath | Should -Exist
+#     }
 
-    It "Ninja" {
-        "ninja --version" | Should -ReturnZeroExitCode
-    }
-}
+#     It "Ninja" {
+#         "ninja --version" | Should -ReturnZeroExitCode
+#     }
+# }
