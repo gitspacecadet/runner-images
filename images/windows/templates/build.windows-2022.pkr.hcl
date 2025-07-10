@@ -139,7 +139,7 @@ build {
   # }
 
   provisioner "windows-restart" {
-    restart_timeout = "10m"
+    restart_timeout = "20m"
   }
 
   provisioner "windows-shell" {
@@ -263,7 +263,7 @@ build {
   }
 
   provisioner "windows-restart" {
-    restart_timeout = "10m"
+    restart_timeout = "20m"
   }
 
   provisioner "powershell" {
