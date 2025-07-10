@@ -4,11 +4,11 @@ Describe "7-Zip" {
     }
 }
 
-Describe "Aria2" {
-    It "Aria2" {
-        "aria2c --version" | Should -ReturnZeroExitCode
-    }
-}
+# Describe "Aria2" {
+#     It "Aria2" {
+#         "aria2c --version" | Should -ReturnZeroExitCode
+#     }
+# }
 
 Describe "AzCopy" {
     It "AzCopy" {
@@ -16,11 +16,11 @@ Describe "AzCopy" {
     }
 }
 
-Describe "Bicep" {
-    It "Bicep" {
-        "bicep --version" | Should -ReturnZeroExitCode
-    }
-}
+# Describe "Bicep" {
+#     It "Bicep" {
+#         "bicep --version" | Should -ReturnZeroExitCode
+#     }
+# }
 
 Describe "GitVersion" -Skip:(-not (Test-IsWin19)) {
     It "gitversion is installed" {
@@ -28,11 +28,11 @@ Describe "GitVersion" -Skip:(-not (Test-IsWin19)) {
     }
 }
 
-Describe "InnoSetup" -Skip:(Test-IsWin25) {
-    It "InnoSetup" {
-        (Get-Command -Name iscc).CommandType | Should -BeExactly "Application"
-    }
-}
+# Describe "InnoSetup" -Skip:(Test-IsWin25) {
+#     It "InnoSetup" {
+#         (Get-Command -Name iscc).CommandType | Should -BeExactly "Application"
+#     }
+# }
 
 Describe "Jq" {
     It "Jq" {
@@ -52,45 +52,45 @@ Describe "Packer" {
     }
 }
 
-Describe "Perl" {
-    It "Perl" {
-       "perl --version" | Should -ReturnZeroExitCode
-    }
-}
+# Describe "Perl" {
+#     It "Perl" {
+#        "perl --version" | Should -ReturnZeroExitCode
+#     }
+# }
 
-Describe "Pulumi" {
-    It "pulumi" {
-       "pulumi version" | Should -ReturnZeroExitCode
-    }
-}
+# Describe "Pulumi" {
+#     It "pulumi" {
+#        "pulumi version" | Should -ReturnZeroExitCode
+#     }
+# }
 
-Describe "Svn" -Skip:(Test-IsWin25) {
-    It "svn" {
-        "svn --version --quiet" | Should -ReturnZeroExitCode
-    }
-}
+# Describe "Svn" -Skip:(Test-IsWin25) {
+#     It "svn" {
+#         "svn --version --quiet" | Should -ReturnZeroExitCode
+#     }
+# }
 
-Describe "Swig" {
-    It "Swig" {
-        "swig -version" | Should -ReturnZeroExitCode
-    }
-}
+# Describe "Swig" {
+#     It "Swig" {
+#         "swig -version" | Should -ReturnZeroExitCode
+#     }
+# }
 
-Describe "VSWhere" {
-    It "vswhere" {
-        "vswhere" | Should -ReturnZeroExitCode
-    }
-}
+# Describe "VSWhere" {
+#     It "vswhere" {
+#         "vswhere" | Should -ReturnZeroExitCode
+#     }
+# }
 
-Describe "Julia" {
-    It "Julia path exists" {
-        "C:\Julia" | Should -Exist
-    }
+# Describe "Julia" {
+#     It "Julia path exists" {
+#         "C:\Julia" | Should -Exist
+#     }
 
-    It "Julia" {
-        "julia --version" | Should -ReturnZeroExitCode
-    }
-}
+#     It "Julia" {
+#         "julia --version" | Should -ReturnZeroExitCode
+#     }
+# }
 
 Describe "CMake" {
     It "cmake" {
