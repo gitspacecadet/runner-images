@@ -19,8 +19,7 @@
         { "name": "PowerShellGet" },
         { "name": "PSScriptAnalyzer" },
         { "name": "PSWindowsUpdate" },
-        { "name": "VSSetup" },
-        { "name": "Microsoft.Graph" }
+        { "name": "VSSetup" }
     ],
     "azureModules": [
         {
