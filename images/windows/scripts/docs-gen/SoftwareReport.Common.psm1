@@ -121,7 +121,8 @@ function Get-NPMVersion {
 }
 
 function Get-YarnVersion {
-    yarn -version
+    # yarn -version  # Yarn removed from minimal image
+    return "Not installed"
 }
 
 function Get-RubyGemsVersion {

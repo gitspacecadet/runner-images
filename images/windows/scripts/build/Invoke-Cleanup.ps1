@@ -38,16 +38,7 @@ Write-Host "Clean up various directories"
 # Remove AllUsersAllHosts profile
 Remove-Item $profile.AllUsersAllHosts -Force -ErrorAction SilentlyContinue | Out-Null
 
-# Clean yarn and npm cache
-# cmd /c "yarn cache clean 2>&1" | Out-Null
-# if ($LASTEXITCODE -ne 0) {
-#     throw "Failed to clean yarn cache"
-# }
-
-# cmd /c "npm cache clean --force 2>&1" | Out-Null
-# if ($LASTEXITCODE -ne 0) {
-#     throw "Failed to clean npm cache"
-# }
+# Yarn and npm cache cleaning removed - these tools are not included in the minimal image
 
 if (Test-IsWin25) {
     $directoriesToCompact = @(

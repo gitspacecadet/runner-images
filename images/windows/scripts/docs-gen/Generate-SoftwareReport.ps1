@@ -33,7 +33,7 @@ $languageAndRuntime.AddToolVersion("Go", $(Get-GoVersion))
 $languageAndRuntime.AddToolVersion("Julia", $(Get-JuliaVersion))
 $languageAndRuntime.AddToolVersion("Kotlin", $(Get-KotlinVersion))
 $languageAndRuntime.AddToolVersion("LLVM", $(Get-LLVMVersion))
-$languageAndRuntime.AddToolVersion("Node", $(Get-NodeVersion))
+# $languageAndRuntime.AddToolVersion("Node", $(Get-NodeVersion))
 $languageAndRuntime.AddToolVersion("Perl", $(Get-PerlVersion))
 $languageAndRuntime.AddToolVersion("PHP", $(Get-PHPVersion))
 $languageAndRuntime.AddToolVersion("Python", $(Get-PythonVersion))
@@ -51,7 +51,7 @@ $packageManagement.AddToolVersion("pip", $(Get-PipVersion))
 $packageManagement.AddToolVersion("Pipx", $(Get-PipxVersion))
 $packageManagement.AddToolVersion("RubyGems", $(Get-RubyGemsVersion))
 $packageManagement.AddToolVersion("Vcpkg", $(Get-VcpkgVersion))
-$packageManagement.AddToolVersion("Yarn", $(Get-YarnVersion))
+# $packageManagement.AddToolVersion("Yarn", $(Get-YarnVersion))  # Yarn removed from minimal image
 
 $packageManagement.AddHeader("Environment variables").AddTable($(Build-PackageManagementEnvironmentTable))
 
