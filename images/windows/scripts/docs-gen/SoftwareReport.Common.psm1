@@ -209,7 +209,14 @@ function Get-DotnetRuntimes {
 
 function Get-DotnetFrameworkVersions {
     $path = "${env:ProgramFiles(x86)}\Microsoft SDKs\Windows\*\*\NETFX * Tools"
-    return Get-ChildItem -Path $path -Directory | ForEach-Object { $_.Name | Get-StringPart -Part 1 }
+    
+    # Check if the path exists before trying to access it
+    if (Test-Path $path) {
+        return Get-ChildItem -Path $path -Directory | ForEach-Object { $_.Name | Get-StringPart -Part 1 }
+    } else {
+        # Return empty array for minimal build without Windows SDK
+        return @()
+    }
 }
 
 function Get-PowerShellAzureModules {
