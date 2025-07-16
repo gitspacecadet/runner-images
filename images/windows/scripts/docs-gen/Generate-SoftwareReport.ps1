@@ -249,7 +249,7 @@ $psModules.AddNodes($(Get-PowerShellModules))
 
 # $android.AddHeader("Environment variables").AddTable($(Build-AndroidEnvironmentTable))
 
-Cached Docker images - Comment out since likely not in minimal image
+# Cached Docker images - Comment out since likely not in minimal image
 if (-not (Test-IsWin25)) {
     $installedSoftware.AddHeader("Cached Docker images").AddTable($(Get-CachedDockerImagesTableData))
 }
