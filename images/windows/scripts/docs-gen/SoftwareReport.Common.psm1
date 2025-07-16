@@ -1,8 +1,8 @@
-function Initialize-RustEnvironment {
-    $env:RUSTUP_HOME = "C:\Users\Default\.rustup"
-    $env:CARGO_HOME = "C:\Users\Default\.cargo"
-    $env:Path += ";$env:CARGO_HOME\bin"
-}
+# function Initialize-RustEnvironment {
+#     $env:RUSTUP_HOME = "C:\Users\Default\.rustup"
+#     $env:CARGO_HOME = "C:\Users\Default\.cargo"
+#     $env:Path += ";$env:CARGO_HOME\bin"
+# }
 
 function Get-OSName {
     return (Get-CimInstance -ClassName Win32_OperatingSystem).Caption | Get-StringPart -Part 1,2,3
@@ -21,91 +21,91 @@ function Build-OSInfoSection {
     return $osInfoNode
 }
 
-function Get-BashVersion {
-    bash --% -c 'echo ${BASH_VERSION}'
-}
+# function Get-BashVersion {
+#     bash --% -c 'echo ${BASH_VERSION}'
+# }
 
-function Get-RustVersion {
-    rustc --version | Get-StringPart -Part 1
-}
+# function Get-RustVersion {
+#     rustc --version | Get-StringPart -Part 1
+# }
 
-function Get-RustupVersion {
-    cmd /c "rustup --version 2>NUL" | Get-StringPart -Part 1
-}
+# function Get-RustupVersion {
+#     cmd /c "rustup --version 2>NUL" | Get-StringPart -Part 1
+# }
 
-function Get-RustCargoVersion {
-    cargo --version | Get-StringPart -Part 1
-}
+# function Get-RustCargoVersion {
+#     cargo --version | Get-StringPart -Part 1
+# }
 
-function Get-RustdocVersion {
-    rustdoc --version | Get-StringPart -Part 1
-}
+# function Get-RustdocVersion {
+#     rustdoc --version | Get-StringPart -Part 1
+# }
 
-function Get-RustfmtVersion {
-    rustfmt --version | Get-StringPart -Part 1 | Get-StringPart -Part 0 -Delimiter ('-')
-}
+# function Get-RustfmtVersion {
+#     rustfmt --version | Get-StringPart -Part 1 | Get-StringPart -Part 0 -Delimiter ('-')
+# }
 
-function Get-RustClippyVersion {
-    cargo clippy --version | Get-StringPart -Part 1
-}
+# function Get-RustClippyVersion {
+#     cargo clippy --version | Get-StringPart -Part 1
+# }
 
-function Get-BindgenVersion {
-    bindgen --version | Get-StringPart -Part 1
-}
+# function Get-BindgenVersion {
+#     bindgen --version | Get-StringPart -Part 1
+# }
 
-function Get-CbindgenVersion {
-    cbindgen --version | Get-StringPart -Part 1
-}
+# function Get-CbindgenVersion {
+#     cbindgen --version | Get-StringPart -Part 1
+# }
 
-function Get-CargoAuditVersion {
-    cargo-audit --version | Get-StringPart -Part 1
-}
+# function Get-CargoAuditVersion {
+#     cargo-audit --version | Get-StringPart -Part 1
+# }
 
-function Get-CargoOutdatedVersion {
-    cargo outdated --version | Get-StringPart -Part 1
-}
+# function Get-CargoOutdatedVersion {
+#     cargo outdated --version | Get-StringPart -Part 1
+# }
 
-function Get-PythonVersion {
-    python --version | Get-StringPart -Part 1
-}
+# function Get-PythonVersion {
+#     python --version | Get-StringPart -Part 1
+# }
 
 function Get-PowershellCoreVersion {
     pwsh --version | Get-StringPart -Part 1
 }
 
-function Get-RubyVersion {
-    ruby --version | Get-StringPart -Part 1
-}
+# function Get-RubyVersion {
+#     ruby --version | Get-StringPart -Part 1
+# }
 
-function Get-GoVersion {
-    go version | Get-StringPart -Part 2 | Get-StringPart -Part 1 -Delimiter ('o')
-}
+# function Get-GoVersion {
+#     go version | Get-StringPart -Part 2 | Get-StringPart -Part 1 -Delimiter ('o')
+# }
 
-function Get-KotlinVersion {
-    cmd /c "kotlinc -version 2>&1" | Get-StringPart -Part 2
-}
+# function Get-KotlinVersion {
+#     cmd /c "kotlinc -version 2>&1" | Get-StringPart -Part 2
+# }
 
-function Get-PHPVersion {
-    php --version | Out-String | Get-StringPart -Part 1
-}
+# function Get-PHPVersion {
+#     php --version | Out-String | Get-StringPart -Part 1
+# }
 
-function Get-JuliaVersion {
-    julia --version | Get-StringPart -Part 2
-}
+# function Get-JuliaVersion {
+#     julia --version | Get-StringPart -Part 2
+# }
 
-function Get-LLVMVersion {
-    (clang --version) -match "clang" | Get-StringPart -Part 2
-}
+# function Get-LLVMVersion {
+#     (clang --version) -match "clang" | Get-StringPart -Part 2
+# }
 
-function Get-PerlVersion {
-    ($(perl --version) | Out-String) -match "\(v(?<version>\d+\.\d+\.\d+)\)" | Out-Null
-    $perlVersion = $Matches.Version
-    return $perlVersion
-}
+# function Get-PerlVersion {
+#     ($(perl --version) | Out-String) -match "\(v(?<version>\d+\.\d+\.\d+)\)" | Out-Null
+#     $perlVersion = $Matches.Version
+#     return $perlVersion
+# }
 
-function Get-NodeVersion {
-    node --version | Get-StringPart -Part 0 -Delimiter ('v')
-}
+# function Get-NodeVersion {
+#     node --version | Get-StringPart -Part 0 -Delimiter ('v')
+# }
 
 function Get-ChocoVersion {
     choco --version
@@ -116,59 +116,59 @@ function Get-VcpkgVersion {
     return "(build from commit $commitId)"
 }
 
-function Get-NPMVersion {
-    npm -version
-}
+# function Get-NPMVersion {
+#     npm -version
+# }
 
-function Get-YarnVersion {
-    # yarn -version  # Yarn removed from minimal image
-    return "Not installed"
-}
+# function Get-YarnVersion {
+#     # yarn -version  # Yarn removed from minimal image
+#     return "Not installed"
+# }
 
-function Get-RubyGemsVersion {
-    gem --version
-}
+# function Get-RubyGemsVersion {
+#     gem --version
+# }
 
-function Get-HelmVersion {
-    ($(helm version --short) | Out-String) -match "v(?<version>\d+\.\d+\.\d+)" | Out-Null
-    $helmVersion = $Matches.Version
-    return $helmVersion
-}
+# function Get-HelmVersion {
+#     ($(helm version --short) | Out-String) -match "v(?<version>\d+\.\d+\.\d+)" | Out-Null
+#     $helmVersion = $Matches.Version
+#     return $helmVersion
+# }
 
-function Get-PipVersion {
-    (pip --version) -match "pip" | Get-StringPart -Part 1, 4, 5
-}
+# function Get-PipVersion {
+#     (pip --version) -match "pip" | Get-StringPart -Part 1, 4, 5
+# }
 
-function Get-CondaVersion {
-    $condaVersion = ((& "$env:CONDA\Scripts\conda.exe" --version) -replace "^conda").Trim()
-    return "$condaVersion (pre-installed on the image but not added to PATH)"
-}
+# function Get-CondaVersion {
+#     $condaVersion = ((& "$env:CONDA\Scripts\conda.exe" --version) -replace "^conda").Trim()
+#     return "$condaVersion (pre-installed on the image but not added to PATH)"
+# }
 
-function Get-ComposerVersion {
-    composer --version | Get-StringPart -Part 2
-}
+# function Get-ComposerVersion {
+#     composer --version | Get-StringPart -Part 2
+# }
 
 function Get-NugetVersion {
     (nuget help) -match "Nuget Version" | Get-StringPart -Part 2
 }
 
-function Get-AntVersion {
-    ant -version | Get-StringPart -Part 3
-}
+# function Get-AntVersion {
+#     ant -version | Get-StringPart -Part 3
+# }
 
-function Get-MavenVersion {
-    (mvn -version) -match "Apache Maven" | Get-StringPart -Part 2
-}
+# function Get-MavenVersion {
+#     (mvn -version) -match "Apache Maven" | Get-StringPart -Part 2
+# }
 
-function Get-GradleVersion {
-    ($(gradle -version) | Out-String) -match "Gradle (?<version>\d+\.\d+)" | Out-Null
-    $gradleVersion = $Matches.Version
-    return $gradleVersion
-}
+# function Get-GradleVersion {
+#     ($(gradle -version) | Out-String) -match "Gradle (?<version>\d+\.\d+)" | Out-Null
+#     $gradleVersion = $Matches.Version
+#     return $gradleVersion
+# }
 
-function Get-SbtVersion {
-    sbt --script-version
-}
+# function Get-SbtVersion {
+#     sbt --script-version
+# }
 
 function Get-DotnetSdks {
     $sdksRawList = dotnet --list-sdks
@@ -283,48 +283,48 @@ function Get-CachedDockerImagesTableData {
     } | Sort-Object -Property "Repository:Tag"
 }
 
-function Get-ShellTarget {
-    return Get-ChildItem C:\shells -File | Select-Object Name, @{n = "Target"; e = {
-            if ($_.Name -eq "msys2bash.cmd") {
-                "C:\msys64\usr\bin\bash.exe"
-            } else {
-                @($_.Target)[0]
-            }
-        }
-    } | Sort-Object Name
-}
+# function Get-ShellTarget {
+#     return Get-ChildItem C:\shells -File | Select-Object Name, @{n = "Target"; e = {
+#             if ($_.Name -eq "msys2bash.cmd") {
+#                 "C:\msys64\usr\bin\bash.exe"
+#             } else {
+#                 @($_.Target)[0]
+#             }
+#         }
+#     } | Sort-Object Name
+# }
 
-function Get-PacmanVersion {
-    $msys2BinDir = "C:\msys64\usr\bin"
-    $pacmanPath = Join-Path $msys2BinDir "pacman.exe"
-    $rawVersion = & $pacmanPath --version
-    $rawVersion.Split([System.Environment]::NewLine)[1] -match "\d+\.\d+(\.\d+)?" | Out-Null
-    $pacmanVersion = $matches[0]
-    return $pacmanVersion
-}
+# function Get-PacmanVersion {
+#     $msys2BinDir = "C:\msys64\usr\bin"
+#     $pacmanPath = Join-Path $msys2BinDir "pacman.exe"
+#     $rawVersion = & $pacmanPath --version
+#     $rawVersion.Split([System.Environment]::NewLine)[1] -match "\d+\.\d+(\.\d+)?" | Out-Null
+#     $pacmanVersion = $matches[0]
+#     return $pacmanVersion
+# }
 
-function Get-YAMLLintVersion {
-    yamllint --version | Get-StringPart -Part 1
-}
+# function Get-YAMLLintVersion {
+#     yamllint --version | Get-StringPart -Part 1
+# }
 
-function Get-BizTalkVersion {
-    $bizTalkReg = Get-ItemProperty "HKLM:\SOFTWARE\WOW6432Node\Microsoft\BizTalk Server\3.0"
-    return [ToolVersionNode]::new($bizTalkReg.ProductName, $bizTalkReg.ProductVersion)
-}
+# function Get-BizTalkVersion {
+#     $bizTalkReg = Get-ItemProperty "HKLM:\SOFTWARE\WOW6432Node\Microsoft\BizTalk Server\3.0"
+#     return [ToolVersionNode]::new($bizTalkReg.ProductName, $bizTalkReg.ProductVersion)
+# }
 
-function Get-PipxVersion {
-    pipx --version
-}
+# function Get-PipxVersion {
+#     pipx --version
+# }
 
-function Build-PackageManagementEnvironmentTable {
-    return @(
-        [PSCustomObject] @{
-            "Name" = "VCPKG_INSTALLATION_ROOT"
-            "Value" = $env:VCPKG_INSTALLATION_ROOT
-        },
-        [PSCustomObject] @{
-            "Name" = "CONDA"
-            "Value" = $env:CONDA
-        }
-    )
-}
+# function Build-PackageManagementEnvironmentTable {
+#     return @(
+#         [PSCustomObject] @{
+#             "Name" = "VCPKG_INSTALLATION_ROOT"
+#             "Value" = $env:VCPKG_INSTALLATION_ROOT
+#         },
+#         [PSCustomObject] @{
+#             "Name" = "CONDA"
+#             "Value" = $env:CONDA
+#         }
+#     )
+# }
