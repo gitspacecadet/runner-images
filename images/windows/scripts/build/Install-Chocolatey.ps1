@@ -23,3 +23,11 @@ choco feature enable -n allowGlobalConfirmation
 # Initialize environmental variable ChocolateyToolsLocation by invoking choco Get-ToolsLocation function
 Import-Module "$env:ChocolateyInstall\helpers\chocolateyInstaller.psm1" -Force
 Get-ToolsLocation
+
+# Verify choco is working
+Write-Host "Verifying Chocolatey installation..."
+choco --version
+if ($LASTEXITCODE -ne 0) {
+    throw "Chocolatey installation verification failed"
+}
+Write-Host "Chocolatey installation completed successfully"
