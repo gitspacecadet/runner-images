@@ -316,15 +316,15 @@ function Get-CachedDockerImagesTableData {
 #     pipx --version
 # }
 
-# function Build-PackageManagementEnvironmentTable {
-#     return @(
-#         [PSCustomObject] @{
-#             "Name" = "VCPKG_INSTALLATION_ROOT"
-#             "Value" = $env:VCPKG_INSTALLATION_ROOT
-#         },
-#         [PSCustomObject] @{
-#             "Name" = "CONDA"
-#             "Value" = $env:CONDA
-#         }
-#     )
-# }
+function Build-PackageManagementEnvironmentTable {
+    return @(
+        [PSCustomObject] @{
+            "Name" = "VCPKG_INSTALLATION_ROOT"
+            "Value" = $env:VCPKG_INSTALLATION_ROOT
+        },
+        [PSCustomObject] @{
+            "Name" = "CONDA"
+            "Value" = $env:CONDA
+        }
+    )
+}
