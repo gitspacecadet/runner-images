@@ -283,16 +283,16 @@ function Get-CachedDockerImagesTableData {
     } | Sort-Object -Property "Repository:Tag"
 }
 
-# function Get-ShellTarget {
-#     return Get-ChildItem C:\shells -File | Select-Object Name, @{n = "Target"; e = {
-#             if ($_.Name -eq "msys2bash.cmd") {
-#                 "C:\msys64\usr\bin\bash.exe"
-#             } else {
-#                 @($_.Target)[0]
-#             }
-#         }
-#     } | Sort-Object Name
-# }
+function Get-ShellTarget {
+    return Get-ChildItem C:\shells -File | Select-Object Name, @{n = "Target"; e = {
+            if ($_.Name -eq "msys2bash.cmd") {
+                "C:\msys64\usr\bin\bash.exe"
+            } else {
+                @($_.Target)[0]
+            }
+        }
+    } | Sort-Object Name
+}
 
 # function Get-PacmanVersion {
 #     $msys2BinDir = "C:\msys64\usr\bin"
