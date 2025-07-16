@@ -223,7 +223,13 @@ if (Test-IsWin19) {
 } else {
     $netCoreTools.AddToolVersionsListInline(".NET Core SDK", $(Get-DotnetSdks).Versions, '^\d+\.\d+\.\d{3}')
 }
-$netCoreTools.AddToolVersionsListInline(".NET Framework", $(Get-DotnetFrameworkVersions), '^.+')
+
+# Only add .NET Framework versions if they exist (minimal build may not have Windows SDK)
+$dotnetFrameworkVersions = Get-DotnetFrameworkVersions
+if ($dotnetFrameworkVersions -and $dotnetFrameworkVersions.Count -gt 0) {
+    $netCoreTools.AddToolVersionsListInline(".NET Framework", $dotnetFrameworkVersions, '^.+')
+}
+
 Get-DotnetRuntimes | ForEach-Object {
     $netCoreTools.AddToolVersionsListInline($_.Runtime, $_.Versions, '^.+')
 }
