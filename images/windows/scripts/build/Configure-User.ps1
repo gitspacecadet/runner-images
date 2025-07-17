@@ -8,23 +8,44 @@
 #       https://github.com/actions/runner-images/issues/5301#issuecomment-1648292990
 #
 
-Write-Host "Warmup 'devenv.exe /updateconfiguration'"
-$vsInstallRoot = (Get-VisualStudioInstance).InstallationPath
-cmd.exe /c "`"$vsInstallRoot\Common7\IDE\devenv.exe`" /updateconfiguration"
-if ($LASTEXITCODE -ne 0) {
-    throw "Failed to warmup 'devenv.exe /updateconfiguration'"
+Write-Host "Checking if Visual Studio is installed..."
+$vsInstallRoot = $null
+try {
+    $vsInstance = Get-VisualStudioInstance
+    if ($vsInstance) {
+        $vsInstallRoot = $vsInstance.InstallationPath
+        Write-Host "Visual Studio found at: $vsInstallRoot"
+    }
+} catch {
+    Write-Host "Get-VisualStudioInstance failed: $($_.Exception.Message)"
 }
 
-# we are fine if some file is locked and cannot be copied
-Copy-Item ${env:USERPROFILE}\AppData\Local\Microsoft\VisualStudio -Destination c:\users\default\AppData\Local\Microsoft\VisualStudio -Recurse -ErrorAction SilentlyContinue
+if ($vsInstallRoot -and (Test-Path "$vsInstallRoot\Common7\IDE\devenv.exe")) {
+    Write-Host "Warmup 'devenv.exe /updateconfiguration'"
+    cmd.exe /c "`"$vsInstallRoot\Common7\IDE\devenv.exe`" /updateconfiguration"
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "Warning: Failed to warmup 'devenv.exe /updateconfiguration' (exit code: $LASTEXITCODE)"
+    }
+    
+    # we are fine if some file is locked and cannot be copied
+    Copy-Item ${env:USERPROFILE}\AppData\Local\Microsoft\VisualStudio -Destination c:\users\default\AppData\Local\Microsoft\VisualStudio -Recurse -ErrorAction SilentlyContinue
+} else {
+    Write-Host "Visual Studio not installed - skipping devenv.exe warmup"
+}
 
 Mount-RegistryHive `
     -FileName "C:\Users\Default\NTUSER.DAT" `
     -SubKey "HKLM\DEFAULT"
 
-reg.exe copy HKCU\Software\Microsoft\VisualStudio HKLM\DEFAULT\Software\Microsoft\VisualStudio /s
-if ($LASTEXITCODE -ne 0) {
-    throw "Failed to copy HKCU\Software\Microsoft\VisualStudio to HKLM\DEFAULT\Software\Microsoft\VisualStudio"
+# Only copy Visual Studio registry settings if Visual Studio is installed
+if ($vsInstallRoot -and (Test-Path "$vsInstallRoot\Common7\IDE\devenv.exe")) {
+    Write-Host "Copying Visual Studio registry settings..."
+    reg.exe copy HKCU\Software\Microsoft\VisualStudio HKLM\DEFAULT\Software\Microsoft\VisualStudio /s
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "Warning: Failed to copy Visual Studio registry settings (exit code: $LASTEXITCODE)"
+    }
+} else {
+    Write-Host "Visual Studio not installed - skipping Visual Studio registry copy"
 }
 
 # TortoiseSVN not installed on Windows 2025 image due to Sysprep issues
