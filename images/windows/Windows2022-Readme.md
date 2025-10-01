@@ -546,3 +546,32 @@ Note: MSYS2 is pre-installed on image but not added to PATH.
 | mcr.microsoft.com/windows/nanoserver:ltsc2022                             | sha256:23fa4e796f4d02d462beadb844f8985ca4583b1b0f75295137f5968dab255b09  | 2025-06-05 |
 | mcr.microsoft.com/windows/servercore:ltsc2022                             | sha256:c489e1737a833a111f0f35b28257b1071d30b6db6b9ee50e88b7c08b901efc67  | 2025-06-05 |
 
+
+## Optional Business Central Cache
+This image build includes an optional step to pre-cache Microsoft Dynamics 365 Business Central generic container image and artifacts to speed up later container creation during workflows.
+
+Artifacts cached:
+- Generic BC base image (determined by host OS)
+- Artifact packages (platform + application) for the selected type/country
+
+Environment variable controls:
+
+| Variable        | Default              | Description                                                   |
+| --------------- | -------------------- | ------------------------------------------------------------- |
+| BC_CACHE_SKIP   | (unset)              | If set to true/1/yes skips cache priming                      |
+| BC_COUNTRY      | us                   | Country/Localization (e.g. us, dk, de)                        |
+| BC_TYPE         | Sandbox              | Environment type (Sandbox / OnPrem / Production)              |
+| BC_SELECT       | Latest               | Artifact selection (Latest, NextMajor, NextMinor, Specific)   |
+| BC_CACHE_DIR    | C:\\bcartifacts-cache | Where artifacts are stored                                    |
+
+Metadata file saved: `C:\bcartifacts-cache\bc-cache-metadata.json`
+
+Disable in future builds: set `BC_CACHE_SKIP=true` or remove `Create-BcContainer.ps1` from the build template.
+
+Refresh cache manually on a runner VM:
+```powershell
+pwsh -File C:\image\build\scripts\build\Create-BcContainer.ps1
+```
+
+Note: No running BC container is created—only artifacts are downloaded to moderate image size.
+
