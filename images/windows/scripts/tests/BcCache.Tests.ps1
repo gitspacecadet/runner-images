@@ -20,7 +20,7 @@ Describe "Business Central Cache" -Tag 'BC','Cache' {
         (Get-Module -ListAvailable -Name BcContainerHelper) | Should -Not -BeNullOrEmpty
     }
 
-    $cacheDir = if ($env:BC_CACHE_DIR) { $env:BC_CACHE_DIR } else { 'C:\bcartifacts-cache' }
+    $cacheDir = if ($env:BC_CACHE_DIR) { $env:BC_CACHE_DIR } else { 'C:\bcartifacts.cache' }
 
     It "Cache directory exists: $cacheDir" {
         Test-Path $cacheDir | Should -BeTrue
@@ -34,22 +34,26 @@ Describe "Business Central Cache" -Tag 'BC','Cache' {
     $metadata = if (Test-Path $metadataPath) { Get-Content $metadataPath -Raw | ConvertFrom-Json } else { $null }
 
     It "Metadata contains expected keys" {
-        $expected = 'timestampUtc','hostOsVersion','genericImage','artifactUrl','country','type','select','cacheDir'
+        $expected = 'timestampUtc','hostOsVersion','genericImage','filesOnlyImage','artifactUrl','country','type','select','cacheDir'
         $missing = $expected | Where-Object { -not ($metadata.PSObject.Properties.Name -contains $_) }
         $missing | Should -BeNullOrEmpty
     }
 
     Context "Docker image presence" {
-        # docker may not be available in certain test contexts; handle gracefully
         $dockerExists = Get-Command docker -ErrorAction SilentlyContinue
         It "Docker CLI is present" -Skip:(!$dockerExists) {
             $dockerExists | Should -Not -BeNullOrEmpty
         }
         if ($dockerExists) {
             $genericImage = $metadata.genericImage
+            $filesOnlyImage = $metadata.filesOnlyImage
             It "Generic BC image '$genericImage' pulled" -Skip:([string]::IsNullOrWhiteSpace($genericImage)) {
                 $images = docker images --format '{{json .}}' | ForEach-Object { $_ | ConvertFrom-Json }
                 ($images | Where-Object { $_.Repository + ':' + $_.Tag -eq $genericImage }) | Should -Not -BeNullOrEmpty
+            }
+            It "Files-only BC image '$filesOnlyImage' pulled" -Skip:([string]::IsNullOrWhiteSpace($filesOnlyImage)) {
+                $images = docker images --format '{{json .}}' | ForEach-Object { $_ | ConvertFrom-Json }
+                ($images | Where-Object { $_.Repository + ':' + $_.Tag -eq $filesOnlyImage }) | Should -Not -BeNullOrEmpty
             }
         }
     }
