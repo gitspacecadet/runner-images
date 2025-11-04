@@ -10,8 +10,8 @@
 ##       BC_COUNTRY (default: us)
 ##       BC_TYPE (default: Sandbox)
 ##       BC_SELECT (default: Latest)
-##       BC_CACHE_DIR (default: C:\bcartifacts-cache)
-##   - Writes a metadata file to C:\bcartifacts-cache\bc-cache-metadata.json
+##       BC_CACHE_DIR (default: C:\bcartifacts.cache)
+##   - Writes a metadata file to C:\bcartifacts.cache\bc-cache-metadata.json
 ##
 ##  What it does:
 ##   1. Pulls the generic BC Docker image
@@ -65,7 +65,7 @@ Invoke-Section -Name 'Pull generic BC image' -Action {
 $country = if ($env:BC_COUNTRY) { $env:BC_COUNTRY } else { 'us' }
 $type    = if ($env:BC_TYPE) { $env:BC_TYPE } else { 'Sandbox' }
 $select  = if ($env:BC_SELECT) { $env:BC_SELECT } else { 'Latest' }
-$cacheDir = if ($env:BC_CACHE_DIR) { $env:BC_CACHE_DIR } else { 'C:\\bcartifacts-cache' }
+$cacheDir = if ($env:BC_CACHE_DIR) { $env:BC_CACHE_DIR } else { 'C:\bcartifacts.cache' }
 
 New-Item -ItemType Directory -Path $cacheDir -Force | Out-Null
 Write-Host "[BC CACHE] Using cache directory: $cacheDir"
@@ -82,13 +82,14 @@ Invoke-Section -Name 'Download artifacts' -Action {
 
 # Step 2: Build Docker Image
 Invoke-Section -Name 'Build BC Docker Image' -Action {
-	# Construct image name following BcContainerHelper convention
+	# Use "my" as imageName to match AL-Go convention
 	$versionTag = ($script:artifactUrl -split '/')[-2]  # e.g., 27.0.38460.41755
-	$imageName = "bcimage"
+	$imageName = "my"  # MUST match AL-Go default imageName parameter
 	$imageTag = "$type-$versionTag-$country-mt"
 	$script:fullImageName = "${imageName}:${imageTag}".ToLower()
 	
 	Write-Host "[BC CACHE] Building Docker image: $script:fullImageName"
+	Write-Host "[BC CACHE] This image will be reused by AL-Go on every build"
 	
 	# Build the image using New-BcImage
 	$buildParams = @{
