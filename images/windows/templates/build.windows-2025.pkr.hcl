@@ -93,7 +93,7 @@ provisioner "powershell" {
       "${path.root}/../scripts/build/Install-PowershellCore.ps1",
       "${path.root}/../scripts/build/Install-WebPlatformInstaller.ps1",
       # Optional: Pre-cache Business Central generic image & artifacts (skip with env BC_CACHE_SKIP=true)
-      "${path.root}/../scripts/build/Create-BcContainer.ps1",
+      "${path.root}/../scripts/build/Create-BcImage.ps1",
       "${path.root}/../scripts/build/Install-Runner.ps1"
     ]
   }

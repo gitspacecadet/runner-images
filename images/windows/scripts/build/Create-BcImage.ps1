@@ -1,5 +1,5 @@
 ################################################################################
-##  File:  Create-BcContainer.ps1
+##  File:  Create-BcImage.ps1
 ##  Desc:  Pre-caches Business Central (BC) generic image, artifacts, and 
 ##         pre-builds the Docker image so that future container creation on 
 ##         the runner is much faster.

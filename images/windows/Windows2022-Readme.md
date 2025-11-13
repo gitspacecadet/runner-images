@@ -566,11 +566,11 @@ Environment variable controls:
 
 Metadata file saved: `C:\bcartifacts-cache\bc-cache-metadata.json`
 
-Disable in future builds: set `BC_CACHE_SKIP=true` or remove `Create-BcContainer.ps1` from the build template.
+Disable in future builds: set `BC_CACHE_SKIP=true` or remove `Create-BcImage.ps1` from the build template.
 
 Refresh cache manually on a runner VM:
 ```powershell
-pwsh -File C:\image\build\scripts\build\Create-BcContainer.ps1
+pwsh -File C:\image\build\scripts\build\Create-BcImage.ps1
 ```
 
 Note: No running BC container is created—only artifacts are downloaded to moderate image size.

@@ -2,7 +2,7 @@
 param()
 
 # BcCache.Tests.ps1
-# Validates Business Central cache priming performed by Create-BcContainer.ps1
+# Validates Business Central cache priming performed by Create-BcImage.ps1
 # Skips gracefully if BC cache was intentionally disabled via BC_CACHE_SKIP
 
 $ErrorActionPreference = 'Stop'
