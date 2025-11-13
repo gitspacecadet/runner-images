@@ -126,7 +126,7 @@ build {
       # "${path.root}/../scripts/build/Install-WDK.ps1",
       # "${path.root}/../scripts/build/Install-VSExtensions.ps1",
       "${path.root}/../scripts/build/Install-AzureCli.ps1",
-      "${path.root}/../scripts/build/Install-AzureDevOpsCli.ps1",
+      "${path.root}/../scripts/build/Install-AzureDevOpsCli.ps1", # is it really needed for AL-Go?!
       "${path.root}/../scripts/build/Install-ChocolateyPackages.ps1",
       # "${path.root}/../scripts/build/Install-JavaTools.ps1",
       # "${path.root}/../scripts/build/Install-Kotlin.ps1",
@@ -158,7 +158,7 @@ build {
       # "${path.root}/../scripts/build/Configure-Toolset.ps1",
       # "${path.root}/../scripts/build/Install-NodeJS.ps1",
       # "${path.root}/../scripts/build/Install-AndroidSDK.ps1",
-      "${path.root}/../scripts/build/Install-PowershellAzModules.ps1",
+      "${path.root}/../scripts/build/Install-PowershellAzModules.ps1", # are all modules really needed for AL-Go?!
       # "${path.root}/../scripts/build/Install-Pipx.ps1",
       "${path.root}/../scripts/build/Install-Git.ps1",
       "${path.root}/../scripts/build/Install-GitHub-CLI.ps1",

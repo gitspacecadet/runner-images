@@ -2,8 +2,8 @@
 ##  File:  Install-PowershellAzModules.ps1
 ##  Desc:  Install PowerShell modules used by AzureFileCopy@4, AzureFileCopy@5, AzurePowerShell@4, AzurePowerShell@5 tasks
 ##  Supply chain security: package manager
+## Focus on installing only the required modules for AL-Go Actions to minimize image size
 ################################################################################
-
 # The correct Modules need to be saved in C:\Modules
 $installPSModulePath = "C:\\Modules"
 if (-not (Test-Path -LiteralPath $installPSModulePath)) {

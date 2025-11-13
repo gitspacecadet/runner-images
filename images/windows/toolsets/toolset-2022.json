@@ -6,7 +6,7 @@
             "arch": "x64",
             "platform" : "win32",
             "versions": [
-                "18.*",
+                "18.*", // Really needed for AL-Go Actions?!
                 "20.*",
                 "22.*"
             ]
@@ -36,13 +36,13 @@
         { "name": "Containers" },
         { "name": "Microsoft-Windows-Subsystem-Linux", "optionalFeature": true },
         { "name": "VirtualMachinePlatform", "optionalFeature": true },
-        { "name": "NET-Framework-45-Features", "includeAllSubFeatures": true },
-        { "name": "Client-ProjFS", "optionalFeature": true },
-        { "name": "NET-Framework-Features", "includeAllSubFeatures": true },
-        { "name": "Hyper-V", "includeAllSubFeatures": true },
-        { "name": "HypervisorPlatform", "optionalFeature": true },
+        { "name": "NET-Framework-45-Features", "includeAllSubFeatures": true }, // Really needed for AL-Go Actions?!
+        { "name": "Client-ProjFS", "optionalFeature": true }, // Really needed for AL-Go Actions?!
+        { "name": "NET-Framework-Features", "includeAllSubFeatures": true }, // Really needed for AL-Go Actions?!
+        { "name": "Hyper-V", "includeAllSubFeatures": true }, // Really needed for AL-Go Actions?!
+        { "name": "HypervisorPlatform", "optionalFeature": true }, // Really needed for AL-Go Actions?!
         { "name": "Hyper-V-PowerShell" },
-        { "name": "Wireless-Networking" }
+        { "name": "Wireless-Networking" } // Really needed for AL-Go Actions?!
     ],
     "docker": {
         "images": [
@@ -54,7 +54,7 @@
     },
     "dotnet": {
         "versions": [
-            "6.0",
+            "6.0", // Really needed for AL-Go Actions?!
             "8.0",
             "9.0"
         ],
@@ -77,7 +77,7 @@
         "default": "20.*"
     },
     "nsis": {
-        "version": "3.10"
+        "version": "3.10" // Really needed for AL-Go Actions?!
     },
     "openssl": {
         "version": "1.1.1",
