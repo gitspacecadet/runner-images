@@ -9,7 +9,7 @@ locals {
       "win22" = {
             publisher         = "MicrosoftWindowsServer"
             offer             = "WindowsServer"
-            sku               = "2022-Datacenter"
+            sku               = "2022-datacenter-g2"
             os_disk_size_gb = coalesce(var.os_disk_size_gb, 256)
       },
       "win25" = {

@@ -20,7 +20,7 @@ Describe "Business Central Cache" -Tag 'BC','Cache' {
         (Get-Module -ListAvailable -Name BcContainerHelper) | Should -Not -BeNullOrEmpty
     }
 
-    $cacheDir = if ($env:BC_CACHE_DIR) { $env:BC_CACHE_DIR } else { 'C:\bcartifacts-cache' }
+    $cacheDir = if ($env:BC_CACHE_DIR) { $env:BC_CACHE_DIR } else { 'C:\bcartifacts.cache' }
 
     It "Cache directory exists: $cacheDir" {
         Test-Path $cacheDir | Should -BeTrue
