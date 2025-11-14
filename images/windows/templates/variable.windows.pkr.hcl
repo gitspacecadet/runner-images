@@ -128,7 +128,7 @@ variable "virtual_network_subnet_name" {
 }
 variable "vm_size" {
   type    = string
-  default = "Standard_B4ms"
+  default = "Standard_D8s_v3"  // 8 vCPUs, 32GB RAM, 64GB temp disk - for Gen2 image builds
 }
 variable "winrm_expiration_time" {  // A time duration with which to set the WinRM certificate to expire
   type    = string                  // Also applies to key vault secret expiration time

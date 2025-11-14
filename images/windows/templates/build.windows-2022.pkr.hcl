@@ -76,7 +76,7 @@ build {
   provisioner "windows-restart" {
     check_registry        = true
     restart_check_command = "powershell -command \"& {while ( (Get-WindowsOptionalFeature -Online -FeatureName Containers -ErrorAction SilentlyContinue).State -ne 'Enabled' ) { Start-Sleep 30; Write-Output 'InProgress' }}\""
-    restart_timeout       = "10m"
+    restart_timeout       = "30m"  // Increased for Gen2 UEFI boot + Containers feature
   }
 
   provisioner "powershell" {
@@ -115,7 +115,7 @@ build {
 
   provisioner "windows-restart" {
     check_registry  = true
-    restart_timeout = "10m"
+    restart_timeout = "20m"  // Increased for Gen2 UEFI boot
   }
 
   provisioner "powershell" {
