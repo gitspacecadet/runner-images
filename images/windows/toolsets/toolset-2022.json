@@ -1,62 +1,53 @@
 {
-    "toolcache": [
-        {
-            "name": "node",
-            "url" : "https://raw.githubusercontent.com/actions/node-versions/main/versions-manifest.json",
-            "arch": "x64",
-            "platform" : "win32",
-            "versions": [
-                "18.*",
-                "20.*",
-                "22.*"
-            ]
-        }
-    ],
+    "toolcache": [],
     "powershellModules": [
         { "name": "DockerMsftProvider" },
         { "name": "MarkdownPS" },
         { "name": "Pester" },
         { "name": "PowerShellGet" },
         { "name": "PSScriptAnalyzer" },
-        { "name": "PSWindowsUpdate" },
-        { "name": "VSSetup" }
+        { "name": "PSWindowsUpdate" }
     ],
     "azureModules": [
         {
-            "name": "az",
+            "name": "Az.Accounts",
             "versions": [
-                "12.5.0"
+                "3.0.5"
             ],
-            "zip_versions": [
-
-            ]
+            "zip_versions": []
+        },
+        {
+            "name": "Az.KeyVault",
+            "versions": [
+                "6.2.0"
+            ],
+            "zip_versions": []
+        },
+        {
+            "name": "Az.Storage",
+            "versions": [
+                "7.4.0"
+            ],
+            "zip_versions": []
         }
     ],
     "windowsFeatures": [
         { "name": "Containers" },
-        { "name": "Microsoft-Windows-Subsystem-Linux", "optionalFeature": true },
         { "name": "VirtualMachinePlatform", "optionalFeature": true },
-        { "name": "NET-Framework-45-Features", "includeAllSubFeatures": true },
-        { "name": "Client-ProjFS", "optionalFeature": true },
-        { "name": "NET-Framework-Features", "includeAllSubFeatures": true },
         { "name": "Hyper-V", "includeAllSubFeatures": true },
-        { "name": "HypervisorPlatform", "optionalFeature": true },
-        { "name": "Hyper-V-PowerShell" },
-        { "name": "Wireless-Networking" }
+        { "name": "Hyper-V-PowerShell" }
     ],
     "docker": {
-        "images": [
-            "mcr.microsoft.com/windows/nanoserver:ltsc2022"
-        ],
+        "images": [],
         "components": {
             "docker": "27.5.1"
         }
     },
     "dotnet": {
         "versions": [
-            "6.0",
             "8.0",
-            "9.0"
+            "9.0",
+            "10.0"
         ],
         "tools": [
             { "name": "nbgv", "test": "nbgv --version", "getversion": "nbgv --version" }
@@ -66,27 +57,12 @@
     "choco": {
         "common_packages": [
             { "name": "7zip.install" },
-            { "name": "azcopy10" },
             { "name": "jq" },
-            { "name": "NuGet.CommandLine" },
-            { "name": "packer" },
-            { "name": "imagemagick" }
+            { "name": "NuGet.CommandLine" }
         ]
     },
-    "node": {
-        "default": "20.*"
-    },
-    "nsis": {
-        "version": "3.10"
-    },
     "openssl": {
-        "version": "1.1.1",
-        "pinnedDetails": {
-            "link": "https://github.com/actions/runner-images-internal/pull/6702",
-            "reason": "Meaningful reason must be added at next update.",
-            "review-at": "2024-06-01",
-            "type": "preexisting-pinned-version-without-reason"
-        }
+        "version": "3.*"
     },
     "pwsh": {
         "version": "7.4"

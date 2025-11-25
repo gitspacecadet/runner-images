@@ -90,7 +90,7 @@ build {
       "${path.root}/../scripts/build/Install-DockerWinCred.ps1",
       # "${path.root}/../scripts/build/Install-DockerCompose.ps1",
       "${path.root}/../scripts/build/Install-PowershellCore.ps1",
-      "${path.root}/../scripts/build/Install-WebPlatformInstaller.ps1",
+      # "${path.root}/../scripts/build/Install-WebPlatformInstaller.ps1",
       # Optional: Pre-cache Business Central generic image & artifacts (skip with env BC_CACHE_SKIP=true)
       "${path.root}/../scripts/build/Create-BcImage.ps1",
       "${path.root}/../scripts/build/Install-Runner.ps1"
@@ -125,8 +125,8 @@ build {
       # "${path.root}/../scripts/build/Install-Wix.ps1",
       # "${path.root}/../scripts/build/Install-WDK.ps1",
       # "${path.root}/../scripts/build/Install-VSExtensions.ps1",
-      "${path.root}/../scripts/build/Install-AzureCli.ps1",
-      "${path.root}/../scripts/build/Install-AzureDevOpsCli.ps1", # is it really needed for AL-Go?!
+      # "${path.root}/../scripts/build/Install-AzureCli.ps1",
+      # "${path.root}/../scripts/build/Install-AzureDevOpsCli.ps1", # is it really needed for AL-Go?!
       "${path.root}/../scripts/build/Install-ChocolateyPackages.ps1",
       # "${path.root}/../scripts/build/Install-JavaTools.ps1",
       # "${path.root}/../scripts/build/Install-Kotlin.ps1",
@@ -141,7 +141,7 @@ build {
   # }
 
   provisioner "windows-restart" {
-    restart_timeout = "20m"
+    restart_timeout = "10m"
   }
 
   provisioner "windows-shell" {
@@ -208,15 +208,15 @@ build {
       "${path.root}/../scripts/build/Install-WindowsUpdates.ps1",
       "${path.root}/../scripts/build/Configure-DynamicPort.ps1",
       "${path.root}/../scripts/build/Configure-GDIProcessHandleQuota.ps1",
-      "${path.root}/../scripts/build/Configure-Shell.ps1",
-      "${path.root}/../scripts/build/Configure-DeveloperMode.ps1"
+      "${path.root}/../scripts/build/Configure-Shell.ps1"
+      # "${path.root}/../scripts/build/Configure-DeveloperMode.ps1"  # Removed: Not needed for AL-Go
     ]
   }
 
   provisioner "windows-restart" {
     check_registry        = true
     restart_check_command = "powershell -command \"& {if ((-not (Get-Process TiWorker.exe -ErrorAction SilentlyContinue)) -and (-not [System.Environment]::HasShutdownStarted) ) { Write-Output 'Restart complete' }}\""
-    restart_timeout       = "30m"
+    restart_timeout       = "25m"
   }
 
   provisioner "powershell" {
@@ -265,7 +265,7 @@ build {
   }
 
   provisioner "windows-restart" {
-    restart_timeout = "20m"
+    restart_timeout = "15m"
   }
 
   provisioner "powershell" {
