@@ -125,7 +125,7 @@ build {
       # "${path.root}/../scripts/build/Install-Wix.ps1",
       # "${path.root}/../scripts/build/Install-WDK.ps1",
       # "${path.root}/../scripts/build/Install-VSExtensions.ps1",
-      # "${path.root}/../scripts/build/Install-AzureCli.ps1",
+      "${path.root}/../scripts/build/Install-AzureCli.ps1",
       # "${path.root}/../scripts/build/Install-AzureDevOpsCli.ps1", # is it really needed for AL-Go?!
       "${path.root}/../scripts/build/Install-ChocolateyPackages.ps1",
       # "${path.root}/../scripts/build/Install-JavaTools.ps1",
