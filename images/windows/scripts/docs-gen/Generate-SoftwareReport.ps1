@@ -66,7 +66,7 @@ $projectManagement = $installedSoftware.AddHeader("Project Management")
 $tools = $installedSoftware.AddHeader("Tools")
 $tools.AddToolVersion("7zip", $(Get-7zipVersion))                    # In Chocolatey packages
 # $tools.AddToolVersion("aria2", $(Get-Aria2Version))                # Not in minimal image
-$tools.AddToolVersion("azcopy", $(Get-AzCopyVersion))                # In Chocolatey packages
+# $tools.AddToolVersion("azcopy", $(Get-AzCopyVersion))                # Not in Chocolatey packages for minimal image
 # $tools.AddToolVersion("Bazel", $(Get-BazelVersion))                # Not in minimal image
 # $tools.AddToolVersion("Bazelisk", $(Get-BazeliskVersion))          # Not in minimal image
 # $tools.AddToolVersion("Bicep", $(Get-BicepVersion))                # Not in minimal image
@@ -82,7 +82,7 @@ $tools.AddToolVersion("Git LFS", $(Get-GitLFSVersion))              # Usually co
 if (Test-IsWin19) {
     # $tools.AddToolVersion("Google Cloud CLI", $(Get-GoogleCloudCLIVersion)) # Not in minimal image
 }
-$tools.AddToolVersion("ImageMagick", $(Get-ImageMagickVersion))      # In Chocolatey packages
+# $tools.AddToolVersion("ImageMagick", $(Get-ImageMagickVersion))      # Not in Chocolatey packages for minimal image
 if (-not (Test-IsWin25)) {
     # $tools.AddToolVersion("InnoSetup", $(Get-InnoSetupVersion))      # Not in minimal image
 }
@@ -100,7 +100,7 @@ if (-not (Test-IsWin25)) {
     # $tools.AddToolVersion("NSIS", $(Get-NSISVersion))               # Installer tool in toolset but might not be installed yet
 }
 $tools.AddToolVersion("OpenSSL", $(Get-OpenSSLVersion))              # In toolset
-$tools.AddToolVersion("Packer", $(Get-PackerVersion))                # In Chocolatey packages
+# $tools.AddToolVersion("Packer", $(Get-PackerVersion))                # Not in Chocolatey packages for minimal image
 if (Test-IsWin19) {
     # $tools.AddToolVersion("Parcel", $(Get-ParcelVersion))           # Node.js bundler not in minimal image
 }

@@ -32,8 +32,15 @@ Function Install-Asset {
 }
 
 # Get toolcache content from toolset
+# Note: Install-Toolset.ps1 is currently disabled in build.windows-2022.pkr.hcl
+# If re-enabling, ensure toolcache in toolset-2022.json contains the tools you need
 $toolsToInstall = @("Python", "Node", "Go")
 $tools = Get-ToolsetContent | Select-Object -ExpandProperty toolcache | Where-Object { $toolsToInstall -contains $_.Name }
+
+if ($tools.Count -eq 0) {
+    Write-Host "No toolcache tools configured in toolset. Skipping installation."
+    exit 0
+}
 
 foreach ($tool in $tools) {
     # Get versions manifest for current tool
