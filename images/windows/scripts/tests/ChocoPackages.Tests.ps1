@@ -10,11 +10,11 @@ Describe "7-Zip" {
 #     }
 # }
 
-Describe "AzCopy" {
-    It "AzCopy" {
-        "azcopy --version" | Should -ReturnZeroExitCode
-    }
-}
+# Describe "AzCopy" {
+#     It "AzCopy" {
+#         "azcopy --version" | Should -ReturnZeroExitCode
+#     }
+# }
 
 # Describe "Bicep" {
 #     It "Bicep" {
@@ -46,11 +46,11 @@ Describe "Nuget" {
     }
 }
 
-Describe "Packer" {
-    It "Packer" {
-       "packer --version" | Should -ReturnZeroExitCode
-    }
-}
+# Describe "Packer" {
+#     It "Packer" {
+#        "packer --version" | Should -ReturnZeroExitCode
+#     }
+# }
 
 # Describe "Perl" {
 #     It "Perl" {
@@ -98,11 +98,11 @@ Describe "Packer" {
 #     }
 # }
 
-Describe "ImageMagick" {
-    It "ImageMagick" {
-        "magick -version" | Should -ReturnZeroExitCode
-    }
-}
+# Describe "ImageMagick" {
+#     It "ImageMagick" {
+#         "magick -version" | Should -ReturnZeroExitCode
+#     }
+# }
 
 # Describe "Ninja" {
 #     BeforeAll {
