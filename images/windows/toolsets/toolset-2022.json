@@ -39,7 +39,9 @@
         { "name": "Wireless-Networking" }
     ],
     "docker": {
-        "images": [],
+        "images": [
+            "mcr.microsoft.com/windows/nanoserver:ltsc2022"
+        ],
         "components": {
             "docker": "27.5.1"
         }
