@@ -217,7 +217,8 @@ Describe "SQL OLEDB Driver" {
 Describe "OpenSSL" {
     It "OpenSSL Version" {
         $OpenSSLVersion = (Get-ToolsetContent).openssl.version
-        openssl version | Should -BeLike "* ${OpenSSLVersion}*"
+        $opensslCmd = Get-Command openssl -ErrorAction Stop
+        & $opensslCmd version | Should -BeLike "* ${OpenSSLVersion}*"
     }
 
     It "OpenSSL Path" {
