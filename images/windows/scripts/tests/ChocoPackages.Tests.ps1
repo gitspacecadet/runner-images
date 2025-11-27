@@ -10,11 +10,11 @@ Describe "7-Zip" {
 #     }
 # }
 
-# Describe "AzCopy" {
-#     It "AzCopy" {
-#         "azcopy --version" | Should -ReturnZeroExitCode
-#     }
-# }
+Describe "AzCopy" {
+    It "AzCopy" {
+        "azcopy --version" | Should -ReturnZeroExitCode
+    }
+}
 
 # Describe "Bicep" {
 #     It "Bicep" {
