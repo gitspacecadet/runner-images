@@ -127,10 +127,10 @@ build {
       # "${path.root}/../scripts/build/Install-VSExtensions.ps1",
       "${path.root}/../scripts/build/Install-AzureCli.ps1",
       # "${path.root}/../scripts/build/Install-AzureDevOpsCli.ps1", # is it really needed for AL-Go?!
-      "${path.root}/../scripts/build/Install-ChocolateyPackages.ps1",
+      "${path.root}/../scripts/build/Install-ChocolateyPackages.ps1"
       # "${path.root}/../scripts/build/Install-JavaTools.ps1",
       # "${path.root}/../scripts/build/Install-Kotlin.ps1",
-      "${path.root}/../scripts/build/Install-OpenSSL.ps1"
+      # "${path.root}/../scripts/build/Install-OpenSSL.ps1" # Not needed for AL-Go - no actual usage found
     ]
   }
 
