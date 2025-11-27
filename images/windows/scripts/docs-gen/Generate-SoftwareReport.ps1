@@ -82,7 +82,7 @@ $tools.AddToolVersion("Git LFS", $(Get-GitLFSVersion))              # Usually co
 if (Test-IsWin19) {
     # $tools.AddToolVersion("Google Cloud CLI", $(Get-GoogleCloudCLIVersion)) # Not in minimal image
 }
-$tools.AddToolVersion("ImageMagick", $(Get-ImageMagickVersion))      # In Chocolatey packages
+# $tools.AddToolVersion("ImageMagick", $(Get-ImageMagickVersion))      # Not needed for AL-Go - removed from minimal image
 if (-not (Test-IsWin25)) {
     # $tools.AddToolVersion("InnoSetup", $(Get-InnoSetupVersion))      # Not in minimal image
 }
