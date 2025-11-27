@@ -100,10 +100,10 @@ if (-not (Test-IsWin25)) {
     # $tools.AddToolVersion("NSIS", $(Get-NSISVersion))               # Installer tool in toolset but might not be installed yet
 }
 # $tools.AddToolVersion("OpenSSL", $(Get-OpenSSLVersion))              # Not needed for AL-Go - removed from minimal image
-$tools.AddToolVersion("Packer", $(Get-PackerVersion))                # In Chocolatey packages
-if (Test-IsWin19) {
-    # $tools.AddToolVersion("Parcel", $(Get-ParcelVersion))           # Node.js bundler not in minimal image
-}
+# $tools.AddToolVersion("Packer", $(Get-PackerVersion))                # In Chocolatey packages
+# if (Test-IsWin19) {
+#     # $tools.AddToolVersion("Parcel", $(Get-ParcelVersion))           # Node.js bundler not in minimal image
+# }
 # $tools.AddToolVersion("Pulumi", $(Get-PulumiVersion))               # Infrastructure tool not in minimal image
 # $tools.AddToolVersion("R", $(Get-RVersion))                         # R language not in minimal image
 # $tools.AddToolVersion("Service Fabric SDK", $(Get-ServiceFabricSDKVersion)) # Not in minimal image

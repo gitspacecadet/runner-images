@@ -143,10 +143,10 @@ function Get-OpenSSLVersion {
     return $opensslVersion
 }
 
-function Get-PackerVersion {
-    $packerVersion = (packer --version | Select-String "^Packer").Line.Replace('v','') | Get-StringPart -Part 1
-    return $packerVersion
-}
+# function Get-PackerVersion {
+#     $packerVersion = (packer --version | Select-String "^Packer").Line.Replace('v','') | Get-StringPart -Part 1
+#     return $packerVersion
+# }
 
 function Get-ParcelVersion {
     $parcelVersion = parcel --version
